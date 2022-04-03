@@ -1,0 +1,20 @@
+.navbar_li{
+    border-right: 1px solid #A97155;
+    width: 100%;
+    transition: .5s;
+}
+.navbar_link{
+    padding: 4px 6px;
+    text-decoration: none;
+    color: black;
+}
+.navbar_li:hover{
+    background-color: #A97155;
+    transition: .5s;
+}
+.navbar_li:hover .navbar_link{
+    color: white;
+}
+.navtabMenu{
+    width: 300px;
+}
