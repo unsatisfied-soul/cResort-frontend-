@@ -8,22 +8,19 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import { Link } from 'react-router-dom';
-import { Divider, Hidden, List, ListItem, ListItemText } from '@mui/material';
+import { Button, Divider, Hidden, List, ListItem } from '@mui/material';
 import './Navbar.css'
-import { ChevronRight, Clear } from '@material-ui/icons';
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import { Clear } from '@material-ui/icons';
+
 
 
 
 const Navbar = () => {
   const [open, setOpen] =useState(false);
-  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const navigationLinks = [
     {
@@ -44,16 +41,7 @@ const Navbar = () => {
     }
   ]
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+ 
    
 
   return (
@@ -72,7 +60,7 @@ const Navbar = () => {
             Resort
           </Typography>
 
-          {/* mobile/laptop_____________________ */}
+          {/* mobile _____________________ */}
 
           <Typography
             variant="h3"
@@ -91,25 +79,16 @@ const Navbar = () => {
             <Box sx={{ flexGrow: 1,color: '#000', display: { xs: 'none', md: 'flex' } }}>
               
               <List className='navbar' sx={{textDecoration:'none',width: 450, display: 'flex',  fontSize: 18}}>
-                    <ListItem className='navbar_li' sx={{display: 'flex', justifyContent: 'center', py: 0, px: '2px',fontSize: 20}}>
+                    
+                    {
+                      navigationLinks.map(singlenav => (
+                        <ListItem className='navbar_li' sx={{display: 'flex', justifyContent: 'center', py: 0, px: '2px',fontSize: 20}}>
                       
-                        <Link className='navbar_link' to="/">Home</Link>
+                        <Link className='navbar_link' to={singlenav.href}>{singlenav.name}</Link>
                       
-                    </ListItem>
-                    <ListItem className='navbar_li' sx={{display: 'flex', justifyContent: 'center', py: 0, px: '2px',fontSize: 20}}>
-                      
-                        <Link className='navbar_link' to="/about">Rooms</Link>
-                      
-                    </ListItem>
-                    <ListItem className='navbar_li' sx={{display: 'flex', justifyContent: 'center', py: 0, px: '2px',fontSize: 20}}>
-                      
-                        <Link className='navbar_link' to="/contact">About US</Link>
-                      
-                    </ListItem>
-                    <ListItem className='navbar_li' sx={{display: 'flex', justifyContent: 'center', py: 0, px: '2px',fontSize: 20}}>
-                      
-                        <Link className='navbar_link' to="/about">News</Link>
-                    </ListItem>
+                        </ListItem>
+                      ))
+                    }
                 </List>
             </Box>
 
@@ -119,34 +98,9 @@ const Navbar = () => {
                 </IconButton>
               </Hidden>
           
-                <Box >
-                    <Tooltip title="Open settings">
-                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                    </IconButton>
-                    </Tooltip>
-                    <Menu
-                    sx={{ mt: '45px' }}
-                    id="menu-appbar"
-                    anchorEl={anchorElUser}
-                    anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                    }}
-                    open={Boolean(anchorElUser)}
-                    onClose={handleCloseUserMenu}
-                    >
-                    {settings.map((setting) => (
-                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center">{setting}</Typography>
-                        </MenuItem>
-                    ))}
-                    </Menu>
+                <Box>
+                    <Button sx={{bgcolor: '#A97155',fontWeight: 'bold', px: 4,py:'12px', mr:2,display: { xs: 'none', md: 'flex' }}} variant = "contained" href="/login">Book your Room</Button>
+                    <Button sx={{bgcolor: '#A97155',fontWeight: 'bold', px: 4,py:'12px', mr:2,display: { xs: 'flex', md: 'none' }}} variant = "contained" href="/login">Book now</Button>
                 </Box>
                 
           </Box>
@@ -156,6 +110,8 @@ const Navbar = () => {
           
         </Toolbar>
       </Container>
+
+      {/* mobile nav ________________ */}
       <SwipeableDrawer  sx={{display: { xs: 'flex', md: 'none' }}} anchor="left" 
       open={open} onOpen={()=> setOpen(true)} 
       onClose={()=> setOpen(false)
