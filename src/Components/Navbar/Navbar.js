@@ -82,7 +82,7 @@ const Navbar = () => {
                     
                     {
                       navigationLinks.map(singlenav => (
-                        <ListItem className='navbar_li' sx={{display: 'flex', justifyContent: 'center', py: 0, px: '2px',fontSize: 20}}>
+                        <ListItem key={singlenav.name} className='navbar_li' sx={{display: 'flex', justifyContent: 'center', py: 0, px: '2px',fontSize: 20}}>
                       
                         <Link className='navbar_link' to={singlenav.href}>{singlenav.name}</Link>
                       
