@@ -21,17 +21,13 @@ const CssTextField = styled(TextField)({
       },
     },
   });
-<<<<<<< HEAD
 
 
   
-=======
->>>>>>> ed193c6e375dc847e7b161e6d7690f32045fadf0
   
 
 const Login = () => {
     const [email,setEmail] = useState('')
-<<<<<<< HEAD
     const [password,setPassword] = useState('')
 
     const handleSubmit = e => {
@@ -47,36 +43,11 @@ const Login = () => {
                 textAlign: 'left', bgcolor: '#A97155',width: '140px', px:'8px', color: 'white',mb: '6px'
               }}
             > 
-=======
-    const [password,setpassword] = useState('')
-    return (
-        <Box
-            sx={{
-            width: 500,
-            maxWidth: '100%',
-            mx: 'auto',
-            border: '1px solid gray',
-            px: 2,
-            py: 3,
-            mt: 2
-            }}
-        >
-            <Typography 
-            sx={{
-                textAlign: 'left', 
-                bgcolor: '#A97155', 
-                width: '140px', 
-                px:'8px', 
-                color: 'white',
-                 mb: '6px'
-                }}> 
->>>>>>> ed193c6e375dc847e7b161e6d7690f32045fadf0
                  Already a Member
             </Typography>
 
             <Typography variant= 'h5' sx={{textAlign: 'left', width: '160px', px:'8px', fontFamily: 'Nunito', mb: 3, fontWeight: 'medium'}}> Log In</Typography>
 
-<<<<<<< HEAD
             <form onSubmit={handleSubmit}>
               <CssTextField fullWidth label="email" sx={{mb: 2}} onChange={e => setEmail(e.target.value)} id="email" />
 
@@ -86,12 +57,6 @@ const Login = () => {
             </form>
 
             
-=======
-            <CssTextField fullWidth label="email" sx={{mb: 2}} id="email" />
-            <CssTextField fullWidth label="password"  id="password" sx={{mb: 2}} />
-
-            <Button fullWidth variant="contained" sx ={{bgcolor: '#A97155', py:1}}>Log In</Button>
->>>>>>> ed193c6e375dc847e7b161e6d7690f32045fadf0
         </Box>
     );
 };
