@@ -1,5 +1,6 @@
 import { Box, Button, styled, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const CssTextField = styled(TextField)({
@@ -21,6 +22,28 @@ const CssTextField = styled(TextField)({
       },
     },
   });
+
+  const CustomButton = styled(Button)({
+    textTransform: 'none',
+    fontFamily: 'Nunito',
+    fontWeight: 'medium',
+    fontSize: 20,
+    padding: '6px 12px',
+    lineHeight: 1.5,
+    backgroundColor: '#A97155',
+    '&:hover': {
+        backgroundColor: '#c08162',
+        boxShadow: 'none',
+    },
+    '&:active': {
+        boxShadow: 'none',
+        backgroundColor: '#c08162',
+        borderColor: '#005cbf',
+    },
+    '&:focus': {
+        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+    },
+})
 
 
   
@@ -53,9 +76,10 @@ const Login = () => {
 
               <CssTextField fullWidth label="password"  id="password" onChange={e => setPassword(e.target.value)} sx={{mb: 2}} />
 
-              <Button fullWidth type="submit" variant="contained" sx ={{bgcolor: '#A97155', py:1}}>Log In</Button>
+              
+              <CustomButton fullWidth type="submit" variant="contained" sx ={{bgcolor: '#A97155', py:1,mb:2}}>Log In</CustomButton>
             </form>
-
+            <Typography sx={{textAlign: 'left', px:'8px', fontFamily: 'Nunito', fontWeight: 'bold',fontSize: '16px'}}> don't have an account? <Link to='/register'>Register</Link></Typography>
             
         </Box>
     );
