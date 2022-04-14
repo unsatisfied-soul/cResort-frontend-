@@ -73,7 +73,7 @@ const Navbar = () => {
           </Typography>
 
 
-          <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
+          <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between',mb:1}}>
 
 
             <Box sx={{ flexGrow: 1,color: '#000', display: { xs: 'none', md: 'flex' } }}>

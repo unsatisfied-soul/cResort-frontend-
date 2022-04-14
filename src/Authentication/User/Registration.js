@@ -51,10 +51,13 @@ const CustomButton = styled(Button)({
 const Registration = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const [name,setName] = useState('')
+    const [number,setNumber] = useState('')
+    const [bio,setBio] = useState('')
 
     const handleSubmit = e => {
       e.preventDefault();
-      console.log(email, password);
+      console.log(email, password,name,number,bio);
     };
     return (
         <Box sx={{
@@ -71,15 +74,15 @@ const Registration = () => {
             <Typography variant= 'h5' sx={{textAlign: 'left', width: '160px', px:'8px', fontFamily: 'Nunito', mb: 3, fontWeight: 'medium'}}> Registration</Typography>
 
             <form onSubmit={handleSubmit}>
-              <CssTextField required fullWidth label="Username" sx={{mb: 2}} onChange={e => setEmail(e.target.value)} id="username" />
+              <CssTextField required fullWidth label="UserName" sx={{mb: 2}} onChange={e => setName(e.target.value)} id="username" />
 
-              <CssTextField required fullWidth label="Email"  id="email" onChange={e => setPassword(e.target.value)} sx={{mb: 2}} />
+              <CssTextField required fullWidth label="Email"  id="email" onChange={e => setEmail(e.target.value)} sx={{mb: 2}} />
 
               <CssTextField required fullWidth label="Password"  id="password" onChange={e => setPassword(e.target.value)} sx={{mb: 2}} />
 
-              <CssTextField required fullWidth label="Number"  id="number" type="number"  onChange={e => setPassword(e.target.value)} sx={{mb: 2}} />
+              <CssTextField required fullWidth label="Number"  id="number"  InputLabelProps={{ shrink: true }} type="number" shrink  onChange={e => setNumber(e.target.value)} sx={{mb: 2}} />
 
-              <CssTextField required fullWidth label="About/Bio"  id="bio" type="text"  onChange={e => setPassword(e.target.value)} sx={{mb: 2}} />
+              <CssTextField required fullWidth label="About/Bio"  id="bio" type="text"  onChange={e => setBio(e.target.value)} sx={{mb: 2}} />
 
               
               <CustomButton fullWidth type="submit" variant="contained" sx ={{mb:2}}>Register</CustomButton>
